@@ -25,7 +25,6 @@ const config = {
 const path = '/Users/oscaryu/Downloads/';
 
 axios(config).then((res) => {
-    // res.data.pipe(fs.createWriteStream(`${path}public-test.pdf`)); // dump response data to file
     Stream2MultiPart.getParts(res).then((parts) => {
         if (parts && parts.length) {
             parts.forEach((part) => {
