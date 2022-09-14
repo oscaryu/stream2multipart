@@ -1,0 +1,27 @@
+{
+  "name": "stream2multipart",
+  "version": "0.1.0",
+  "description": "Receive stream chunks and convert it into an easy to use object array.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oscaryu/stream2multipart.git"
+  },
+  "keywords": [
+    "download",
+    "axios",
+    "stream",
+    "multipart"
+  ],
+  "author": "Oscar Yu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/oscaryu/stream2multipart/issues"
+  },
+  "homepage": "https://github.com/oscaryu/stream2multipart#readme",
+  "dependencies": {
+  }
+}
