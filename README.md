@@ -50,6 +50,3 @@ axios(config).then((res) => {
 });
 
 ````
-
-
-UnhandledPromiseRejectionWarning: Error: Sheet "MEX" not found in the *.xlsx file. Available sheets: "USA" (#1), "CAN" (#2).
