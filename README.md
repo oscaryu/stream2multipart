@@ -24,25 +24,22 @@ const config = {
 
 const path = '/Users/oscaryu/Downloads/';
 
-axios(config).then((res) => {
-    Stream2MultiPart.getParts(res).then((parts) => {
-        if (parts && parts.length) {
-            parts.forEach((part) => {
-                if (part.Filename) {
-                    const wstream = fs.createWriteStream(`${path}${part.Filename}`);
-                    wstream.write(part.Content);
-                    wstream.end();
-                    console.log(`Saved ${path}${part.Filename}`);
-                } else if (part.ContentType === 'application/json') {
-                    console.log(JSON.stringify(part.Content, null, 4));
-                } else {
-                    console.log(part.Content);
-                }
-            });
-        }
-    });
-}).catch((err) => {
-    console.log(err);
+axios(config).then(async (res) => {
+    const parts = await Stream2MultiPart.getParts(res);
+    if (parts && parts.length) {
+        parts.forEach((part) => {
+            if (part.Filename) {
+                const wstream = fs.createWriteStream(`${path}${part.Filename}`);
+                wstream.write(part.Content);
+                wstream.end();
+                console.log(`Saved ${path}${part.Filename}`);
+            } else if (part.ContentType === 'application/json') {
+                console.log(JSON.stringify(part.Content, null, 4));
+            } else {
+                console.log(part.Content);
+            }
+        });
+    }
 });
 
 ````

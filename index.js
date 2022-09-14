@@ -21,10 +21,8 @@ const getParts = (res) => {
             const boundary = getBoundary(res);
             console.log('boundary', boundary);
             const buffer = Buffer.concat(chunks);
-            // console.log('buffer', buffer.toString());
             let lastPos = 0;
             let pos = buffer.indexOf('\r\n');
-            const data = [];
             const parts = [];
 
             let isContentReady = false;
