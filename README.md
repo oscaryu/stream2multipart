@@ -10,10 +10,8 @@ npm install stream2multipart
 
 ````
 const Stream2MultiPart = require('stream2multipart');
-
 const axios = require('axios');
 const fs = require('fs');
-const { StreamToBuffer } = require('./Stream2Buffer');
 
 const config = {
     method: 'get',
@@ -27,9 +25,8 @@ const config = {
 const path = '/Users/oscaryu/Downloads/';
 
 axios(config).then((res) => {
-    console.log(res)
     // res.data.pipe(fs.createWriteStream(`${path}public-test.pdf`)); // dump response data to file
-    StreamToBuffer(res).then((parts) => {
+    Stream2MultiPart.getParts(res).then((parts) => {
         if (parts && parts.length) {
             parts.forEach((part) => {
                 if (part.Filename) {

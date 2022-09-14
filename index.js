@@ -1,4 +1,4 @@
-function getBoundary(res) {
+const getBoundary = (res) => {
     const header = res.headers['content-type'];
     const items = header.split(';');
     if (items) {
@@ -11,7 +11,7 @@ function getBoundary(res) {
     return '';
 }
 
-function StreamToBuffer(res) {
+const getParts = (res) => {
     const stream = res.data;
     const chunks = [];
     return new Promise((resolve, reject) => {
@@ -75,4 +75,4 @@ function StreamToBuffer(res) {
     });
 }
 
-module.exports.StreamToBuffer = StreamToBuffer;
+module.exports.getParts = getParts;
